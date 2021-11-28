@@ -46,7 +46,7 @@ export default function PostSlug() {
   let transition = useTransition();
 
   return (
-    <Form method="post">
+    <Form method="post" key={post.slug}>
       <p>
         <label>
           Post Title:{" "}
