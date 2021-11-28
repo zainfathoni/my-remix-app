@@ -53,7 +53,7 @@ export async function getPost(slug: string) {
     `Post ${filepath} is missing attributes`
   );
   let html = marked(body);
-  return { slug, html, title: attributes.title };
+  return { slug, html, title: attributes.title, markdown: body };
 }
 
 type NewPost = {
@@ -69,4 +69,10 @@ export async function createPost(post: NewPost) {
     md
   );
   return getPost(post.slug);
+}
+
+export type PostError = {
+  title?: boolean;
+  slug?: boolean;
+  markdown?: boolean;
 }
